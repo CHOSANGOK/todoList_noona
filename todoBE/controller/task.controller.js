@@ -30,8 +30,14 @@ taskController.updateTask = async (req, res) => {
       new: true,
       runValidators: true,
     });
-    if (!updateTask)
-      return res.status(404).json({ status: "success", data: updateTask });
+
+    if (!updateTask) {
+      return res
+        .status(404)
+        .json({ status: "fail", message: "Task not found" });
+    }
+
+    return res.status(200).json({ status: "success", data: updateTask });
   } catch (err) {
     res.status(400).json({ status: "fail", error: err });
   }
@@ -39,8 +45,9 @@ taskController.updateTask = async (req, res) => {
 
 taskController.deleteTask = async (req, res) => {
   try {
-    const deleteItem = await Task.findByIdAndDelete(req, params.id);
-    res.status(400).json({ status: "fail", error });
+    const deleteItem = await Task.findByIdAndDelete(req.params.id);
+
+    res.status(200).json({ status: "success", data: deleteItem });
   } catch (err) {
     res.status(400).json({ status: "fail", error: err });
   }
