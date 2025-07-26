@@ -9,6 +9,7 @@ const taskSchem = Schema({
   isComplete: {
     type: Boolean,
     required: true,
+    default: false,
   },
 });
 
