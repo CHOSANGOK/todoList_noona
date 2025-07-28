@@ -27,8 +27,8 @@ userController.login = async (req, res) => {
     const user = await User.findOne({ email });
 
     if (user) {
-      const isMath = bcrypt.compareSync(password, user.password);
-      if (isMath) {
+      const isMtach = bcrypt.compareSync(password, user.password);
+      if (isMtach) {
         const token = user.generateToken();
         return res.status(200).json({ status: "success", user, token });
       } else {
