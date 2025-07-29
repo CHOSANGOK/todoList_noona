@@ -28,7 +28,6 @@ const RegisterPage = () => {
       setError(err.message);
     }
   };
-  console.log(error);
 
   return (
     <div className="display-center">
@@ -40,6 +39,7 @@ const RegisterPage = () => {
           <Form.Control
             type="string"
             placeholder="Name"
+            required
             onChange={(e) => {
               setName(e.target.value);
             }}
@@ -51,6 +51,7 @@ const RegisterPage = () => {
           <Form.Control
             type="email"
             placeholder="Enter email"
+            required
             onChange={(e) => {
               setEmail(e.target.value);
             }}
@@ -62,6 +63,7 @@ const RegisterPage = () => {
           <Form.Control
             type="password"
             placeholder="Password"
+            required
             onChange={(e) => {
               setPassword(e.target.value);
             }}
@@ -73,6 +75,7 @@ const RegisterPage = () => {
           <Form.Control
             type="password"
             placeholder="re-enter the password"
+            required
             onChange={(e) => {
               setSecondPassword(e.target.value);
             }}
