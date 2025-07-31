@@ -14,7 +14,7 @@ const taskSchem = Schema({
   author: {
     type: Schema.Types.ObjectId,
     required: true,
-    ref: "USER",
+    ref: "User",
   },
 });
 
