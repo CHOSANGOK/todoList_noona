@@ -5,7 +5,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 
-const TodoPage = () => {
+const TodoPage = ({ getUser }) => {
   const [todoList, setTodoList] = useState([]);
   const [todoValue, setTodoValue] = useState("");
 
@@ -57,6 +57,12 @@ const TodoPage = () => {
       console.log("error", error);
     }
   };
+
+  const handleLogout = () => {
+    sessionStorage.removeItem("token");
+    getUser();
+  };
+
   return (
     <Container>
       <Row className="add-item-row">
@@ -72,6 +78,9 @@ const TodoPage = () => {
         <Col xs={12} sm={2}>
           <button onClick={addTodo} className="button-add">
             추가
+          </button>
+          <button onClick={handleLogout} className="button-add">
+            로그아웃
           </button>
         </Col>
       </Row>
